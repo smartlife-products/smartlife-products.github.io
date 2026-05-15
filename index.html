@@ -188,6 +188,8 @@
         position: relative;
         overflow: hidden;
         display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(260px, 0.7fr);
+        align-items: stretch;
         gap: 18px;
         min-height: 330px;
         padding: 22px;
@@ -207,8 +209,20 @@
       .app-top {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         gap: 12px;
+      }
+      .app-main {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .app-side {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        gap: 14px;
       }
       .app-icon {
         width: 72px;
@@ -241,13 +255,15 @@
       }
       .app-preview {
         overflow: hidden;
+        flex: 1;
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 22px;
         background: rgba(0, 0, 0, 0.28);
       }
       .app-preview img {
         width: 100%;
-        height: clamp(220px, 32vw, 390px);
+        height: 100%;
+        min-height: 270px;
         object-fit: cover;
         object-position: top center;
         display: block;
@@ -270,6 +286,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        margin-top: auto;
         color: var(--secondary);
         font-weight: 850;
       }
@@ -281,6 +298,8 @@
       @media (max-width: 820px) {
         .hero { grid-template-columns: 1fr; padding-top: 24px; }
         .stats-card { max-width: 360px; }
+        .app-card { grid-template-columns: 1fr; }
+        .app-preview img { height: clamp(220px, 54vw, 360px); min-height: 220px; }
       }
       @media (max-width: 640px) {
         .wrap { width: min(100% - 32px, 1120px); }
@@ -334,31 +353,35 @@
 
         <div class="apps-grid">
           <a class="app-card" href="https://smartlife-products.github.io/rentify/" aria-label="Open Rentify app website">
-            <div class="app-top">
-              <img class="app-icon" src="./assets/rentify-app-icon.png" alt="Rentify app icon" />
+            <div class="app-main">
+              <div class="app-top">
+                <img class="app-icon" src="./assets/rentify-app-icon.png" alt="Rentify app icon" />
+              </div>
+              <div>
+                <h3>Rentify</h3>
+                <p>
+                  A property management app for owners to manage properties, rent units,
+                  tenants, monthly billing, payment status, reminders, maintenance,
+                  reports, and secure backups in one place.
+                </p>
+              </div>
+              <div class="tags" aria-label="Rentify highlights">
+                <span>Property management</span>
+                <span>Billing</span>
+                <span>Reports</span>
+                <span>Backups</span>
+              </div>
+              <span class="open-row">Open Rentify <span aria-hidden="true">→</span></span>
+            </div>
+            <div class="app-side">
               <span class="status-pill">Available</span>
+              <div class="app-preview">
+                <img
+                  src="https://smartlife-products.github.io/rentify/assets/screens/rentify_intro_1.png"
+                  alt="Rentify app home screen preview"
+                />
+              </div>
             </div>
-            <div>
-              <h3>Rentify</h3>
-              <p>
-                A property management app for owners to manage properties, rent units,
-                tenants, monthly billing, payment status, reminders, maintenance,
-                reports, and secure backups in one place.
-              </p>
-            </div>
-            <div class="app-preview">
-              <img
-                src="https://smartlife-products.github.io/rentify/assets/screens/rentify_intro_1.png"
-                alt="Rentify app home screen preview"
-              />
-            </div>
-            <div class="tags" aria-label="Rentify highlights">
-              <span>Property management</span>
-              <span>Billing</span>
-              <span>Reports</span>
-              <span>Backups</span>
-            </div>
-            <span class="open-row">Open Rentify <span aria-hidden="true">→</span></span>
           </a>
         </div>
       </section>
