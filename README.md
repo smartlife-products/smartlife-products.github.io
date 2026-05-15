@@ -1,6 +1,6 @@
-# SmartLife Products
+# SmartLife Apps
 
-Organization landing page for SmartLife Products.
+Organization landing page for SmartLife Apps.
 
 Public URL: https://smartlife-products.github.io/
 
