@@ -239,6 +239,19 @@
         font-size: 17px;
         line-height: 1.55;
       }
+      .app-preview {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 22px;
+        background: rgba(0, 0, 0, 0.28);
+      }
+      .app-preview img {
+        width: 100%;
+        height: clamp(220px, 32vw, 390px);
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+      }
       .tags {
         display: flex;
         flex-wrap: wrap;
@@ -332,6 +345,12 @@
                 tenants, monthly billing, payment status, reminders, maintenance,
                 reports, and secure backups in one place.
               </p>
+            </div>
+            <div class="app-preview">
+              <img
+                src="https://smartlife-products.github.io/rentify/assets/screens/rentify_intro_1.png"
+                alt="Rentify app home screen preview"
+              />
             </div>
             <div class="tags" aria-label="Rentify highlights">
               <span>Property management</span>
